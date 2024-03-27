@@ -25,7 +25,9 @@ def submit():
     else:
         status = 'Data Submission Failed, error: 500'
 
-    return render_template('index.html', status=status)
+    users = list(collection.find())
+
+    return render_template('index.html', status=status, users=users)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
