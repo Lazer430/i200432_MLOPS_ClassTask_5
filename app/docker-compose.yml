@@ -1,0 +1,16 @@
+services:
+  flask-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: web-flask-app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
